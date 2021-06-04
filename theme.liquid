@@ -1,0 +1,22 @@
+// add this below code bottom of the theme.liquid file
+ <script>
+    $(".faqAccordion button").on("click", function(){
+      var expanded_value = $(this).attr("aria-expanded");
+      var id =$(this).attr("aria-controls");
+      $(".faqAccordion button").attr("aria-expanded", "false");
+      $(this).attr("aria-expanded", "true");
+      var hidden = $("#"+id).attr("aria-hidden");
+      if(expanded_value=="false"){
+         $("#"+id).attr("aria-hidden","true");
+         $(".faq-items").attr("aria-hidden","true");
+         $("#"+id).attr("aria-hidden","false");
+         $(".faq-items").hide();
+         $("#"+id).show();
+      }else{
+        $(".faqAccordion button").attr("aria-expanded", "false");
+        $(".faq-items").attr("aria-hidden","true");
+      }
+      
+      
+    });
+  </script>
