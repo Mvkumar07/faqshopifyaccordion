@@ -1,0 +1,72 @@
+// create a new section, copy & paste the code
+<section id="pdp_faq">
+	<div class="pdp_faq_wrapper">
+		<dl class="faqAccordion">
+			<h2 class="title faq--heading">{{ section.settings.heading_title }}</h2>  
+          {%- for block in section.blocks -%}
+          <dt><button type="button" aria-controls="panel-0{{ forloop.index }}" aria-expanded="false"><h3>{{ block.settings.faq_question}}</h3></button></dt> 
+			<dd class="faq-items" id="panel-0{{ forloop.index }}" aria-hidden="true" style="display: none;">
+				{{ block.settings.faq_content }}
+			</dd>
+          {%- endfor -%}
+          {% comment %}
+          <dt><button type="button" aria-controls="panel-01" aria-expanded="false"><h3>How does this bed reduce anxiety?</h3></button></dt> 
+			<dd id="panel-01" aria-hidden="true" style="display: none;">
+				<ul>
+					<li>The raised walls create a sense of security and help activate the nervous system in a positive way, which then allows your fur kids to calm down faster and relax more easily.</li>
+					<li>Our soft padded centre gives comfortable support while allowing your cat to sink into their safe space.</li>
+					<li>Our 4cm faux fur imitates their mother's fur promoting them to snuggle and calm down.</li>
+					<li>Cats will absolutely knead this bed!</li>
+				</ul>
+			</dd> <dt><button type="button" aria-controls="panel-01" aria-expanded="false"><h3>Plush Interior or Faux Fur Interior?</h3></button></dt> 
+			<dd id="panel-01" aria-hidden="true" style="display: none;">
+				<p>Both are fantastic choices. We recommend the plush interior for warm households or hotter climates. The faux fur would provide extra heat and insulation in colder climates.</p>
+				<p>Both options are filled with extra PP cotton which will make the bed extremely soft and warm.</p>
+			</dd> <dt><button type="button" aria-controls="panel-01" aria-expanded="false"><h3>Can I wash the nest?</h3></button></dt> 
+			<dd id="panel-01" aria-hidden="true" style="display: none;">
+				<p>Absolutely! You can wash all our beds in a 30 degree low spin cycle and dry on a low heat in the dryer right after. We recommend a dryer rather than air-drying to avoid matting and do not recommend the use of dryer sheets.</p>
+			</dd>
+          {% endcomment %}
+		</dl>
+	</div>
+</section>
+
+{% schema %}
+  {
+	"name": "Rich text",
+    "class": "index-faq-section",
+    "max_blocks": 10,
+    "name": "FAQ",
+    "settings": [
+		{
+          "type": "text",
+          "id": "heading_title",
+          "label": "Heading"
+        }
+	],
+	"blocks" : [
+      {
+        "type": "faq",
+        "name": "FAQ items",
+        "settings": [
+          {
+            "type": "text",
+            "id": "faq_question",
+            "label": "Question"
+          },	
+          {
+            "id": "faq_content",
+            "type": "richtext",
+            "label": "Content"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
