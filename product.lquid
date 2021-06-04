@@ -1,0 +1,2 @@
+// add this below section code into template product where ever you want to add faq section
+{% section 'faq' %}
